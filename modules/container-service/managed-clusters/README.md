@@ -472,7 +472,7 @@ module managedClusters './container-service/managed-clusters/main.bicep' = {
         vnetSubnetID: '<vnetSubnetID>'
       }
     ]
-    aksClusterKubernetesVersion: '1.27'
+    aksClusterKubernetesVersion: '1.27.2'
     aksClusterNetworkPlugin: 'azure'
     diagnosticEventHubAuthorizationRuleId: '<diagnosticEventHubAuthorizationRuleId>'
     diagnosticEventHubName: '<diagnosticEventHubName>'
@@ -654,7 +654,7 @@ module managedClusters './container-service/managed-clusters/main.bicep' = {
       ]
     },
     "aksClusterKubernetesVersion": {
-      "value": "1.27"
+      "value": "1.27.2"
     },
     "aksClusterNetworkPlugin": {
       "value": "azure"
