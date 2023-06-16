@@ -55,7 +55,7 @@ This module deploys an Azure Kubernetes Service (AKS) Managed Cluster.
 | `aksClusterDnsServiceIP` | string | `''` |  | Specifies the IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr. |
 | `aksClusterDockerBridgeCidr` | string | `''` |  | Specifies the CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range. |
 | `aksClusterKubernetesVersion` | string | `''` |  | Version of Kubernetes specified when creating the managed cluster. |
-| `aksClusterLoadBalancerSku` | string | `'standard'` | `[base, standard]` | Specifies the sku of the load balancer used by the virtual machine scale sets used by nodepools. |
+| `aksClusterLoadBalancerSku` | string | `'standard'` | `[basic, standard]` | Specifies the sku of the load balancer used by the virtual machine scale sets used by nodepools. |
 | `aksClusterNetworkPlugin` | string | `''` | `['', azure, kubenet]` | Specifies the network plugin used for building Kubernetes network. - azure or kubenet. |
 | `aksClusterNetworkPolicy` | string | `''` | `['', azure, calico]` | Specifies the network policy used for building Kubernetes network. - calico or azure. |
 | `aksClusterOutboundType` | string | `'loadBalancer'` | `[loadBalancer, userDefinedRouting]` | Specifies outbound (egress) routing method. - loadBalancer or userDefinedRouting. |

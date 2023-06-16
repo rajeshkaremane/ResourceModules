@@ -43,7 +43,7 @@ param aksClusterDockerBridgeCidr string = ''
 
 @description('Optional. Specifies the sku of the load balancer used by the virtual machine scale sets used by nodepools.')
 @allowed([
-  'base'
+  'basic'
   'standard'
 ])
 param aksClusterLoadBalancerSku string = 'standard'
@@ -413,7 +413,7 @@ resource managedCluster 'Microsoft.ContainerService/managedClusters@2023-03-02-p
   tags: tags
   identity: identity
   sku: {
-    name: 'Basic'
+    name: 'Base'
     tier: aksClusterSkuTier
   }
   properties: {
