@@ -43,7 +43,7 @@ param aksClusterDockerBridgeCidr string = ''
 
 @description('Optional. Specifies the sku of the load balancer used by the virtual machine scale sets used by nodepools.')
 @allowed([
-  'basic'
+  'base'
   'standard'
 ])
 param aksClusterLoadBalancerSku string = 'standard'
