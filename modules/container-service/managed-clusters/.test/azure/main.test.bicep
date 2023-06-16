@@ -164,6 +164,7 @@ module testDeployment '../../main.bicep' = {
       }
     ]
     systemAssignedIdentity: true
+    aksClusterKubernetesVersion: '1.27'
     supportPlan: 'AKSLongTermSupport'
     tags: {
       Environment: 'Non-Prod'
