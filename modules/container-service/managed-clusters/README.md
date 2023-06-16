@@ -16,8 +16,8 @@ This module deploys an Azure Kubernetes Service (AKS) Managed Cluster.
 | :-- | :-- |
 | `Microsoft.Authorization/locks` | [2020-05-01](https://learn.microsoft.com/en-us/azure/templates/Microsoft.Authorization/2020-05-01/locks) |
 | `Microsoft.Authorization/roleAssignments` | [2022-04-01](https://learn.microsoft.com/en-us/azure/templates/Microsoft.Authorization/2022-04-01/roleAssignments) |
-| `Microsoft.ContainerService/managedClusters` | [2022-11-01](https://learn.microsoft.com/en-us/azure/templates/Microsoft.ContainerService/2022-11-01/managedClusters) |
-| `Microsoft.ContainerService/managedClusters/agentPools` | [2022-11-01](https://learn.microsoft.com/en-us/azure/templates/Microsoft.ContainerService/2022-11-01/managedClusters/agentPools) |
+| `Microsoft.ContainerService/managedClusters` | [2023-03-02-preview](https://learn.microsoft.com/en-us/azure/templates/Microsoft.ContainerService/2023-03-02-preview/managedClusters) |
+| `Microsoft.ContainerService/managedClusters/agentPools` | [2023-03-02-preview](https://learn.microsoft.com/en-us/azure/templates/Microsoft.ContainerService/2023-03-02-preview/managedClusters/agentPools) |
 | `Microsoft.Insights/diagnosticSettings` | [2021-05-01-preview](https://learn.microsoft.com/en-us/azure/templates/Microsoft.Insights/2021-05-01-preview/diagnosticSettings) |
 | `Microsoft.KubernetesConfiguration/extensions` | [2022-03-01](https://learn.microsoft.com/en-us/azure/templates/Microsoft.KubernetesConfiguration/2022-03-01/extensions) |
 | `Microsoft.KubernetesConfiguration/fluxConfigurations` | [2022-03-01](https://learn.microsoft.com/en-us/azure/templates/Microsoft.KubernetesConfiguration/2022-03-01/fluxConfigurations) |
@@ -121,6 +121,7 @@ This module deploys an Azure Kubernetes Service (AKS) Managed Cluster.
 | `podIdentityProfileUserAssignedIdentities` | array | `[]` |  | The pod identities to use in the cluster. |
 | `podIdentityProfileUserAssignedIdentityExceptions` | array | `[]` |  | The pod identity exceptions to allow. |
 | `roleAssignments` | array | `[]` |  | Array of role assignment objects that contain the 'roleDefinitionIdOrName' and 'principalId' to define RBAC role assignments on this resource. In the roleDefinitionIdOrName attribute, you can provide either the display name of the role definition, or its fully qualified ID in the following format: '/providers/Microsoft.Authorization/roleDefinitions/c2f4ef07-c644-48eb-af81-4b1b4947fb11'. |
+| `supportPlan` | string | `'KubernetesOfficial'` | `[AKSLongTermSupport, KubernetesOfficial]` | The support plan for the Managed Cluster. |
 | `systemAssignedIdentity` | bool | `False` |  | Enables system assigned managed identity on the resource. |
 | `tags` | object | `{object}` |  | Tags of the resource. |
 | `usePrivateDNSZone` | bool | `False` |  | If AKS will create a Private DNS Zone in the Node Resource Group. |
@@ -546,6 +547,7 @@ module managedClusters './container-service/managed-clusters/main.bicep' = {
         roleDefinitionIdOrName: 'Reader'
       }
     ]
+    supportPlan: 'AKSLongTermSupport'
     systemAssignedIdentity: true
     tags: {
       Environment: 'Non-Prod'
@@ -748,6 +750,9 @@ module managedClusters './container-service/managed-clusters/main.bicep' = {
           "roleDefinitionIdOrName": "Reader"
         }
       ]
+    },
+    "supportPlan": {
+      "value": "AKSLongTermSupport"
     },
     "systemAssignedIdentity": {
       "value": true

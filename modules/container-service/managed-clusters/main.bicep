@@ -305,6 +305,13 @@ param fluxConfigurationProtectedSettings object = {}
 @description('Optional. Settings and configurations for the flux extension.')
 param fluxExtension object = {}
 
+@allowed([
+  'KubernetesOfficial'
+  'AKSLongTermSupport'
+])
+@description('Optional. The support plan for the Managed Cluster.')
+param supportPlan string = 'KubernetesOfficial'
+
 @description('Optional. The name of logs that will be streamed. "allLogs" includes all possible logs for the resource.')
 @allowed([
   'allLogs'
@@ -400,7 +407,7 @@ resource defaultTelemetry 'Microsoft.Resources/deployments@2022-09-01' = if (ena
   }
 }
 
-resource managedCluster 'Microsoft.ContainerService/managedClusters@2022-11-01' = {
+resource managedCluster 'Microsoft.ContainerService/managedClusters@2023-03-02-preview' = {
   name: name
   location: location
   tags: tags
@@ -521,6 +528,7 @@ resource managedCluster 'Microsoft.ContainerService/managedClusters@2022-11-01' 
         logAnalyticsWorkspaceResourceId: !empty(monitoringWorkspaceId) ? monitoringWorkspaceId : null
       }
     } : null
+    supportPlan: supportPlan
   }
 }
 

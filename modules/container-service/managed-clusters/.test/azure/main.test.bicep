@@ -164,6 +164,7 @@ module testDeployment '../../main.bicep' = {
       }
     ]
     systemAssignedIdentity: true
+    supportPlan: 'AKSLongTermSupport'
     tags: {
       Environment: 'Non-Prod'
       Role: 'DeploymentValidation'
