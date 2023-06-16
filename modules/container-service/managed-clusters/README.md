@@ -121,7 +121,7 @@ This module deploys an Azure Kubernetes Service (AKS) Managed Cluster.
 | `podIdentityProfileUserAssignedIdentities` | array | `[]` |  | The pod identities to use in the cluster. |
 | `podIdentityProfileUserAssignedIdentityExceptions` | array | `[]` |  | The pod identity exceptions to allow. |
 | `roleAssignments` | array | `[]` |  | Array of role assignment objects that contain the 'roleDefinitionIdOrName' and 'principalId' to define RBAC role assignments on this resource. In the roleDefinitionIdOrName attribute, you can provide either the display name of the role definition, or its fully qualified ID in the following format: '/providers/Microsoft.Authorization/roleDefinitions/c2f4ef07-c644-48eb-af81-4b1b4947fb11'. |
-| `supportPlan` | string | `'KubernetesOfficial'` | `[AKSLongTermSupport, KubernetesOfficial]` | The support plan for the Managed Cluster. |
+| `supportPlan` | string | `'KubernetesOfficial'` | `[AKSLongTermSupport, KubernetesOfficial]` | The support plan for the Managed Cluster. Long term support is only available after version Kubernetes version 1.27 and must use the Premium SKU. |
 | `systemAssignedIdentity` | bool | `False` |  | Enables system assigned managed identity on the resource. |
 | `tags` | object | `{object}` |  | Tags of the resource. |
 | `usePrivateDNSZone` | bool | `False` |  | If AKS will create a Private DNS Zone in the Node Resource Group. |
@@ -472,7 +472,6 @@ module managedClusters './container-service/managed-clusters/main.bicep' = {
         vnetSubnetID: '<vnetSubnetID>'
       }
     ]
-    aksClusterKubernetesVersion: '1.27.2'
     aksClusterNetworkPlugin: 'azure'
     aksClusterSkuTier: 'Premium'
     diagnosticEventHubAuthorizationRuleId: '<diagnosticEventHubAuthorizationRuleId>'
@@ -549,7 +548,6 @@ module managedClusters './container-service/managed-clusters/main.bicep' = {
         roleDefinitionIdOrName: 'Reader'
       }
     ]
-    supportPlan: 'AKSLongTermSupport'
     systemAssignedIdentity: true
     tags: {
       Environment: 'Non-Prod'
@@ -654,9 +652,6 @@ module managedClusters './container-service/managed-clusters/main.bicep' = {
         }
       ]
     },
-    "aksClusterKubernetesVersion": {
-      "value": "1.27.2"
-    },
     "aksClusterNetworkPlugin": {
       "value": "azure"
     },
@@ -758,9 +753,6 @@ module managedClusters './container-service/managed-clusters/main.bicep' = {
           "roleDefinitionIdOrName": "Reader"
         }
       ]
-    },
-    "supportPlan": {
-      "value": "AKSLongTermSupport"
     },
     "systemAssignedIdentity": {
       "value": true

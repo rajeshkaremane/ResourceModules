@@ -310,7 +310,7 @@ param fluxExtension object = {}
   'KubernetesOfficial'
   'AKSLongTermSupport'
 ])
-@description('Optional. The support plan for the Managed Cluster.')
+@description('Optional. The support plan for the Managed Cluster. Long term support is only available after version Kubernetes version 1.27 and must use the Premium SKU.')
 param supportPlan string = 'KubernetesOfficial'
 
 @description('Optional. The name of logs that will be streamed. "allLogs" includes all possible logs for the resource.')
