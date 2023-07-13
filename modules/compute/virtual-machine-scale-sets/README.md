@@ -1439,6 +1439,9 @@ module virtualMachineScaleSets './compute/virtual-machine-scale-sets/main.bicep'
     ]
     disablePasswordAuthentication: true
     enableDefaultTelemetry: '<enableDefaultTelemetry>'
+    extensionMonitoringAgentConfig: {
+      enabled: true
+    }
     location: '<location>'
     nicConfigurations: [
       {
@@ -1464,9 +1467,6 @@ module virtualMachineScaleSets './compute/virtual-machine-scale-sets/main.bicep'
     tags: {
       Environment: 'Non-Prod'
       Role: 'DeploymentValidation'
-    }
-    extensionMonitoringAgentConfig: {
-      enabled: true
     }
   }
 }
@@ -1539,6 +1539,11 @@ module virtualMachineScaleSets './compute/virtual-machine-scale-sets/main.bicep'
     "enableDefaultTelemetry": {
       "value": "<enableDefaultTelemetry>"
     },
+    "extensionMonitoringAgentConfig": {
+      "value": {
+        "enabled": true
+      }
+    },
     "location": {
       "value": "<location>"
     },
@@ -1571,11 +1576,6 @@ module virtualMachineScaleSets './compute/virtual-machine-scale-sets/main.bicep'
       "value": {
         "Environment": "Non-Prod",
         "Role": "DeploymentValidation"
-      }
-    },
-    "extensionMonitoringAgentConfig": {
-      "value": {
-        "enabled": true
       }
     }
   }

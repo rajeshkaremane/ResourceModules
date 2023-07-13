@@ -57,6 +57,9 @@ module testDeployment '../../main.bicep' = {
   name: '${uniqueString(deployment().name, location)}-test-${serviceShort}'
   params: {
     enableDefaultTelemetry: enableDefaultTelemetry
+    extensionMonitoringAgentConfig: {
+      enabled: true
+    }
     location: location
     name: '${namePrefix}${serviceShort}001'
     adminUsername: 'scaleSetAdmin'
@@ -116,9 +119,6 @@ module testDeployment '../../main.bicep' = {
     tags: {
       Environment: 'Non-Prod'
       Role: 'DeploymentValidation'
-    }
-    extensionMonitoringAgentConfig: {
-      enabled: true
     }
   }
 }
