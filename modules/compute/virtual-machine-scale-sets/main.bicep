@@ -508,8 +508,8 @@ resource vmss_logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@20
   scope: resourceGroup(split(monitoringWorkspaceId, '/')[2], split(monitoringWorkspaceId, '/')[4])
 }
 
-module vmss_microsoftMonitoringAgentExtension 'extensions/main.bicep' = if (extensionMonitoringAgentConfig.enabled) {
-  name: '${uniqueString(deployment().name, location)}-VMSS-MicrosoftMonitoringAgent'
+module vmss_azureMonitorAgentExtension 'extensions/main.bicep' = if (extensionMonitoringAgentConfig.enabled) {
+  name: '${uniqueString(deployment().name, location)}-VMSS-AzureMonitorAgent'
   params: {
     virtualMachineScaleSetName: vmss.name
     name: 'AzureMonitorAgent'
@@ -609,7 +609,7 @@ module vmss_azureDiskEncryptionExtension 'extensions/main.bicep' = if (extension
   }
   dependsOn: [
     vmss_customScriptExtension
-    vmss_microsoftMonitoringAgentExtension
+    vmss_azureMonitorAgentExtension
   ]
 }
 
