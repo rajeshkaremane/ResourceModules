@@ -1465,6 +1465,9 @@ module virtualMachineScaleSets './compute/virtual-machine-scale-sets/main.bicep'
       Environment: 'Non-Prod'
       Role: 'DeploymentValidation'
     }
+    extensionMonitoringAgentConfig: {
+      enabled: true
+    }
   }
 }
 ```
@@ -1568,6 +1571,11 @@ module virtualMachineScaleSets './compute/virtual-machine-scale-sets/main.bicep'
       "value": {
         "Environment": "Non-Prod",
         "Role": "DeploymentValidation"
+      }
+    },
+    "extensionMonitoringAgentConfig": {
+      "value": {
+        "enabled": true
       }
     }
   }
