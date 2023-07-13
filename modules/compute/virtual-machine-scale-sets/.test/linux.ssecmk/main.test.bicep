@@ -117,5 +117,8 @@ module testDeployment '../../main.bicep' = {
       Environment: 'Non-Prod'
       Role: 'DeploymentValidation'
     }
+    extensionMonitoringAgentConfig: {
+      enabled: true
+    }
   }
 }
