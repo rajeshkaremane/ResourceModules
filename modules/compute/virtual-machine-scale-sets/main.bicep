@@ -512,9 +512,9 @@ module vmss_microsoftMonitoringAgentExtension 'extensions/main.bicep' = if (exte
   name: '${uniqueString(deployment().name, location)}-VMSS-MicrosoftMonitoringAgent'
   params: {
     virtualMachineScaleSetName: vmss.name
-    name: 'MicrosoftMonitoringAgent'
+    name: 'AzureMonitorAgent'
     publisher: 'Microsoft.EnterpriseCloud.Monitoring'
-    type: osType == 'Windows' ? 'MicrosoftMonitoringAgent' : 'OmsAgentForLinux'
+    type: osType == 'Windows' ? 'AzureMonitorWindowsAgent' : 'AzureMonitorLinuxAgent'
     typeHandlerVersion: contains(extensionMonitoringAgentConfig, 'typeHandlerVersion') ? extensionMonitoringAgentConfig.typeHandlerVersion : (osType == 'Windows' ? '1.0' : '1.7')
     autoUpgradeMinorVersion: contains(extensionMonitoringAgentConfig, 'autoUpgradeMinorVersion') ? extensionMonitoringAgentConfig.autoUpgradeMinorVersion : true
     enableAutomaticUpgrade: contains(extensionMonitoringAgentConfig, 'enableAutomaticUpgrade') ? extensionMonitoringAgentConfig.enableAutomaticUpgrade : false
