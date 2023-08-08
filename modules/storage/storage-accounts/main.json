@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.20.4.51522",
-      "templateHash": "4065162214340556544"
+      "templateHash": "6001286076041630376"
     },
     "name": "Storage Accounts",
     "description": "This module deploys a Storage Account.",
@@ -337,7 +337,7 @@
         "PrivateLink"
       ],
       "metadata": {
-        "description": "Optional. Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. dummy."
+        "description": "Optional. Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. dummy2."
       }
     },
     "publicNetworkAccess": {

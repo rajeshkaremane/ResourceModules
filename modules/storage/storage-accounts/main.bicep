@@ -163,7 +163,7 @@ param tags object = {}
 @description('Optional. Enable telemetry via a Globally Unique Identifier (GUID).')
 param enableDefaultTelemetry bool = true
 
-@description('Optional. Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. dummy.')
+@description('Optional. Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. dummy2.')
 @allowed([
   ''
   'AAD'
