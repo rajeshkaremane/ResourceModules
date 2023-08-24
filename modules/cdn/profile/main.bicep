@@ -21,6 +21,8 @@ param location string = resourceGroup().location
   'Custom_Akamai'
   'Custom_ChinaCdn'
   'Custom_Microsoft'
+  'Standard_Microsoft_AzureFrontDoor'
+  'Premium_Microsoft_AzureFrontDoor'
   'Standard_AzureFrontDoor'
   'Premium_AzureFrontDoor'
   'Custom_Microsoft_AzureFrontDoor'
