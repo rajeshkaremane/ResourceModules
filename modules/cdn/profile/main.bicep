@@ -23,6 +23,8 @@ param location string = resourceGroup().location
   'Custom_Microsoft'
   'Standard_Microsoft_AzureFrontDoor'
   'Premium_Microsoft_AzureFrontDoor'
+  'Standard_AzureFrontDoor'
+  'Premium_AzureFrontDoor'
   'Custom_Microsoft_AzureFrontDoor'
 ])
 @description('Required. The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.')
